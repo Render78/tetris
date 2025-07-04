@@ -235,11 +235,16 @@ function drop() {
 function gameOver() {
     gameRunning = false;
     clearInterval(gameInterval);
+    const audio = document.getElementById('tetris-soundtrack');
+    audio.pause();
     alert('¡Juego terminado! Puntaje final: ' + score);
 }
 
 function startGame() {
     if (gameRunning) return;
+    const audio = document.getElementById('tetris-soundtrack');
+    audio.currentTime = 0;
+    audio.play();
     gameRunning = true;
     score = 0;
     gameSpeed = 500;

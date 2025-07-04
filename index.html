@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tetris</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
@@ -21,7 +22,21 @@
             <button onclick="startGame()">Iniciar juego</button>
         </div>
     </div>
+
     <audio id="tetris-soundtrack" src="./assets/soundtrack.m4a" loop></audio>
+
+    <div id="audio-controls">
+        <button id="volume-up" class="audio-btn" title="Subir volumen">
+            <i class="bi bi-volume-up-fill"></i>
+        </button>
+        <button id="volume-down" class="audio-btn" title="Bajar volumen">
+            <i class="bi bi-volume-down-fill"></i>
+        </button>
+        <button id="mute-toggle" class="audio-btn" title="Mutear">
+            <i class="bi bi-volume-mute-fill" id="mute-icon"></i>
+        </button>
+    </div>
+
     <script src="./main.js"></script>
 </body>
 

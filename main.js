@@ -22,6 +22,29 @@ let gameRunning = false;
 let gameSpeed = 500;
 let gameInterval;
 
+const audio = document.getElementById('tetris-soundtrack');
+const muteBtn = document.getElementById('mute-toggle');
+const muteIcon = document.getElementById('mute-icon');
+const volUp = document.getElementById('volume-up');
+const volDown = document.getElementById('volume-down');
+
+muteBtn.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    muteIcon.className = audio.muted ? 'bi bi-volume-mute-fill' : 'bi bi-volume-up-fill';
+});
+
+volUp.addEventListener('click', () => {
+    if (audio.volume < 1) {
+        audio.volume = Math.min(1, audio.volume + 0.1);
+    }
+});
+
+volDown.addEventListener('click', () => {
+    if (audio.volume > 0) {
+        audio.volume = Math.max(0, audio.volume - 0.1);
+    }
+});
+
 function initBoard() {
     board = [];
     for (let row = 0; row < BOARD_HEIGHT; row++) {
